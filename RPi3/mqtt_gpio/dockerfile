@@ -1,0 +1,17 @@
+FROM resin/raspberrypi3-python:3.6
+MAINTAINER Diogo Soares
+
+# Enable systemd
+ENV INITSYSTEM on
+
+# Install PI MQTT GPIO
+RUN pip3 install pi-mqtt-gpio==0.1.1
+
+# Create folder structure
+RUN mkdir /opt/mqtt_gpio/
+
+VOLUME /opt/mqtt_gpio/
+
+ADD ./config.yaml /opt/mqtt_gpio/
+
+ENTRYPOINT []

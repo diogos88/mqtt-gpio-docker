@@ -1,0 +1,9 @@
+version: "3"
+services:
+  insteon_mqtt:
+    build: ./mqtt_gpio
+    restart: always
+    privileged: true
+    command: python -m pi_mqtt_gpio.server /opt/mqtt_gpio/config.yaml
+    volumes:
+     - /data/mqtt_gpio/:/opt/mqtt_gpio/
